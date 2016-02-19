@@ -11,19 +11,26 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
+
+    @IBOutlet weak var history: UILabel!
+    
     var userIsInTheMiddleOfTypingNumber: Bool = false
     
-    var brain = CalculatorBrain()
+    //var brain = CalculatorBrain()
 
    
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
+        history.text = history.text! + digit
+        
         if userIsInTheMiddleOfTypingNumber{
             display.text = display.text! + digit
+            
            
         }else{
             display.text = digit
             
+
             userIsInTheMiddleOfTypingNumber = true
         }
     }
@@ -31,6 +38,8 @@ class ViewController: UIViewController {
     
     @IBAction func appendDecimal(sender: UIButton) {
         let decimal = sender.currentTitle!
+        history.text = history.text!+"."
+        
         if userIsInTheMiddleOfTypingNumber{
             display.text = display.text! + decimal
         }else{
@@ -41,9 +50,17 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func clearStack(sender: UIButton) {
+        display.text = "0"
+        operandStack.removeAll()
+        history.text = "0"
+        
+        
+    }
     
     @IBAction func appendPi() {
         let pi = String(M_PI)
+        history.text = history.text!+"∏"
         if userIsInTheMiddleOfTypingNumber{
             display.text = display.text! + pi
            
@@ -59,18 +76,20 @@ class ViewController: UIViewController {
         if userIsInTheMiddleOfTypingNumber{
             enter()
         }
-        if let operation = sender.currentTitle{
+        /*if let operation = sender.currentTitle{
             if let result = brain.performOperation(operation){
                 displayValue = result
             }else{
                 displayValue = 0
             }
-        }
+        }*/
         
-        /*
-        if let operation = sender.currentTitle!{
+        
+        if let operation = sender.currentTitle{
             switch operation{
-                case "×":performOperation{$0 * $1}
+                case "×":
+                    history.text = history.text!+"×"
+                    performOperation{$0 * $1}
                 /* performOperation({(op1: Double, op2: Double) -> Double
                     in return op1*op2
                     }*/
@@ -78,12 +97,25 @@ class ViewController: UIViewController {
 
             
             
-                case "÷":performOperation{ $1 / $0 }
-                case "+":performOperation{ $0 + $1 }
-                case "−":performOperation{ $1 - $0 }
-                case "√":performOperation{ sqrt($0) }
-                case "sin":performOperation{ sin($0) }
-                case "cos":performOperation{ cos($0) }
+                case "÷":
+                    history.text = history.text!+"÷"
+                    performOperation{ $1 / $0 }
+                case "+":
+                    history.text = history.text!+"+"
+                    performOperation{ $0 + $1 }
+                case "−":
+                    
+                    history.text = history.text!+"−"
+                    performOperation{ $1 - $0 }
+                case "√":
+                    history.text = history.text!+"√"
+                    performOperation{ sqrt($0) }
+                case "sin":
+                    history.text = history.text!+"sin"
+                    performOperation{ sin($0) }
+                case "cos":
+                    history.text = history.text!+"cos"
+                    performOperation{ cos($0) }
             
            
             
@@ -91,11 +123,11 @@ class ViewController: UIViewController {
             
                 default: break
             }
-        }*/
+        }
         
     }
     
-   /* @nonobjc func performOperation(operation: (Double,Double) -> Double){
+   @nonobjc func performOperation(operation: (Double,Double) -> Double){
         if operandStack.count >= 2{
             displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
             //autimatic entry
@@ -109,7 +141,7 @@ class ViewController: UIViewController {
             //autimatic entry
             enter()
         }
-    }*/
+    }
     
    
 
@@ -118,18 +150,23 @@ class ViewController: UIViewController {
     
     
     //var operandStack: Array<Double> = Array<Double>()
-    //var operandStack = Array<Double>()
+    var operandStack = Array<Double>()
+    //var historyStack = Array<String>()
     
 
     @IBAction func enter() {
         userIsInTheMiddleOfTypingNumber = false
-        if let result = brain.pushOperand(displayValue){
+        /*if let result = brain.pushOperand(displayValue){
             displayValue = result
         }else{
             displayValue = 0
-        }
-        
+        }*/
+        operandStack.append(displayValue)
+        history.text = history.text! + ","
+        print("operandStack = \(operandStack)")
+               
     }
+    
     var displayValue: Double{
         get{
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
