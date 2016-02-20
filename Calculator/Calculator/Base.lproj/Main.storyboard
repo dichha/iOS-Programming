@@ -189,12 +189,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ha6-Jc-flV">
                                 <rect key="frame" x="488" y="377" width="84" height="103"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UL0-m2-xDT">
-                                <rect key="frame" x="488" y="488" width="84" height="104"/>
-                                <state key="normal" title="C"/>
+                                <state key="normal" title="⬅︎"/>
                                 <connections>
-                                    <action selector="clearStack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="irf-Ci-3xm"/>
+                                    <action selector="backspace" destination="BYZ-38-t0r" eventType="touchUpInside" id="N0q-gs-aVa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4F8-1b-jGw">
@@ -227,6 +224,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UL0-m2-xDT">
+                                <rect key="frame" x="488" y="488" width="84" height="104"/>
+                                <state key="normal" title="C"/>
+                                <connections>
+                                    <action selector="clearStack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="irf-Ci-3xm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>

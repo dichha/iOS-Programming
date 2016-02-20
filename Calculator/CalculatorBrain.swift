@@ -39,10 +39,15 @@ class CalculatorBrain{
             knownOps[op.description] = op
         }
         learnOp(Op.BinaryOperation("×", *))
-        knownOps["÷"] = Op.BinaryOperation("÷"){ $1 / $0 }
-        knownOps["+"] = Op.BinaryOperation("+", +)
-        knownOps["−"] = Op.BinaryOperation("−"){ $1 - $0 }
-        knownOps["√"] = Op.UnaryOperation("√", sqrt)
+        learnOp(Op.BinaryOperation("÷"){$1 / $0})
+        learnOp(Op.BinaryOperation("+", +))
+        learnOp(Op.BinaryOperation("−"){ $1 - $0})
+        learnOp(Op.UnaryOperation("√", sqrt))
+        
+        //knownOps["÷"] = Op.BinaryOperation("÷"){ $1 / $0 }
+//        knownOps["+"] = Op.BinaryOperation("+", +)
+//        knownOps["−"] = Op.BinaryOperation("−"){ $1 - $0 }
+//        knownOps["√"] = Op.UnaryOperation("√", sqrt)
     }
     private func evaluate(ops: [Op])->(result: Double?,remainingOps: [Op]){
         if !ops.isEmpty{
@@ -53,12 +58,15 @@ class CalculatorBrain{
                 return (operand, remainingOps)
             case .UnaryOperation(_,let operation):
                 let operandEvaluation = evaluate(remainingOps)
+                  //op1Evaluation is a tuple of result and remaining ops
                 if let operand = operandEvaluation.result{
                     return(operation(operand), operandEvaluation.remainingOps)
                 }
             case .BinaryOperation(_,let operation):
                 let op1Evaluation = evaluate(remainingOps)
+                //op1Evaluation is a tuple of result and remaining ops
                 if let operand1 = op1Evaluation.result{
+                    //getting the value of tuple we use . operation and the names in the tuple
                     let op2Evaluation = evaluate(op1Evaluation.remainingOps)
                     if let operand2 = op2Evaluation.result{
                         return(operation(operand1,operand2), op2Evaluation.remainingOps)
@@ -69,6 +77,7 @@ class CalculatorBrain{
 
             
         }
+        //default
         return (nil, ops)
     }
     func evaluate() ->Double? {

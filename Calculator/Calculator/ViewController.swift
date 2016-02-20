@@ -15,13 +15,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var history: UILabel!
     
     var userIsInTheMiddleOfTypingNumber: Bool = false
+  
     
-    //var brain = CalculatorBrain()
+    var brain = CalculatorBrain()
 
    
     @IBAction func appendDigit(sender: UIButton) {
+       
         let digit = sender.currentTitle!
+       
         history.text = history.text! + digit
+        
         
         if userIsInTheMiddleOfTypingNumber{
             display.text = display.text! + digit
@@ -38,7 +42,10 @@ class ViewController: UIViewController {
     
     @IBAction func appendDecimal(sender: UIButton) {
         let decimal = sender.currentTitle!
+        
         history.text = history.text!+"."
+      
+        
         
         if userIsInTheMiddleOfTypingNumber{
             display.text = display.text! + decimal
@@ -50,9 +57,38 @@ class ViewController: UIViewController {
         
     }
     
+  
+    @IBAction func backspace() {
+        let enteredString = display.text!
+      
+        
+        if (enteredString.characters.count > 0){
+            let leftString = String(enteredString.characters.dropLast())
+            
+            
+            //print(leftString)
+            display.text = leftString
+            let goodInput = history.text!.componentsSeparatedByString(",")
+            //removing the laststring of input
+            history.text = ""
+            for i in 0..<(goodInput.count - 1){
+                let hisElement = goodInput[i]
+                history.text = history.text! + hisElement + ","
+            }
+            
+            history.text = history.text! + display.text!
+          
+
+        }
+       
+        
+        
+    }
+    
     @IBAction func clearStack(sender: UIButton) {
         display.text = "0"
         operandStack.removeAll()
+        
         history.text = "0"
         
         
@@ -60,7 +96,10 @@ class ViewController: UIViewController {
     
     @IBAction func appendPi() {
         let pi = String(M_PI)
+    
         history.text = history.text!+"∏"
+    
+        
         if userIsInTheMiddleOfTypingNumber{
             display.text = display.text! + pi
            
@@ -76,7 +115,7 @@ class ViewController: UIViewController {
         if userIsInTheMiddleOfTypingNumber{
             enter()
         }
-        /*if let operation = sender.currentTitle{
+       /* if let operation = sender.currentTitle{
             if let result = brain.performOperation(operation){
                 displayValue = result
             }else{
@@ -93,9 +132,6 @@ class ViewController: UIViewController {
                 /* performOperation({(op1: Double, op2: Double) -> Double
                     in return op1*op2
                     }*/
-            
-
-            
             
                 case "÷":
                     history.text = history.text!+"÷"
@@ -161,10 +197,11 @@ class ViewController: UIViewController {
         }else{
             displayValue = 0
         }*/
+        
         operandStack.append(displayValue)
         history.text = history.text! + ","
         print("operandStack = \(operandStack)")
-               
+        
     }
     
     var displayValue: Double{
