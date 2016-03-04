@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -155,7 +157,6 @@
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="25" verticalHuggingPriority="25" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lW-Po-nXe">
                                 <rect key="frame" x="28" y="488" width="84" height="104"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="∏"/>
                                 <connections>
                                     <action selector="appendPi" destination="BYZ-38-t0r" eventType="touchUpInside" id="VAJ-TD-Jlp"/>
                                 </connections>
@@ -183,9 +184,6 @@
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hnj-DL-jST"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBA-wn-auu">
-                                <rect key="frame" x="488" y="265" width="84" height="104"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ha6-Jc-flV">
                                 <rect key="frame" x="488" y="377" width="84" height="103"/>
@@ -221,7 +219,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uh0-aU-gE7">
                                 <rect key="frame" x="20" y="94" width="560" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UL0-m2-xDT">
@@ -229,6 +227,17 @@
                                 <state key="normal" title="C"/>
                                 <connections>
                                     <action selector="clearStack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="irf-Ci-3xm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBA-wn-auu">
+                                <rect key="frame" x="488" y="265" width="84" height="104"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="25" verticalHuggingPriority="25" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9F-ZT-wcE">
+                                <rect key="frame" x="28" y="488" width="84" height="104"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="∏"/>
+                                <connections>
+                                    <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kb0-WR-HZr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -264,6 +273,7 @@
                             <constraint firstItem="wBA-wn-auu" firstAttribute="top" secondItem="4F8-1b-jGw" secondAttribute="bottom" constant="8" id="GfZ-QH-1GU"/>
                             <constraint firstItem="ZSf-y8-nym" firstAttribute="height" secondItem="NSB-nU-ID6" secondAttribute="height" id="Gz1-nz-gei"/>
                             <constraint firstItem="l4M-O5-oR2" firstAttribute="height" secondItem="NSB-nU-ID6" secondAttribute="height" id="IDD-el-FEb"/>
+                            <constraint firstItem="g9F-ZT-wcE" firstAttribute="top" secondItem="6lW-Po-nXe" secondAttribute="top" id="K6v-G2-Hri"/>
                             <constraint firstItem="l4M-O5-oR2" firstAttribute="top" secondItem="nY3-1k-Ucm" secondAttribute="bottom" constant="8" id="Kae-zW-mhY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4F8-1b-jGw" secondAttribute="trailing" constant="8" id="KfK-uS-m3k"/>
                             <constraint firstAttribute="trailingMargin" secondItem="H3Y-Hf-SoP" secondAttribute="trailing" id="Kjl-um-3ou"/>
@@ -286,6 +296,7 @@
                             <constraint firstItem="qzU-VE-ffe" firstAttribute="height" secondItem="NSB-nU-ID6" secondAttribute="height" id="OpY-K3-afq"/>
                             <constraint firstItem="yIA-mJ-hCR" firstAttribute="width" secondItem="NSB-nU-ID6" secondAttribute="width" id="PA8-Z9-oAB"/>
                             <constraint firstItem="4F8-1b-jGw" firstAttribute="width" secondItem="NSB-nU-ID6" secondAttribute="width" id="PTD-sI-X5i"/>
+                            <constraint firstItem="g9F-ZT-wcE" firstAttribute="baseline" secondItem="4T2-xe-GGx" secondAttribute="firstBaseline" id="PW4-0U-Kqe"/>
                             <constraint firstItem="bwA-pl-eBb" firstAttribute="height" secondItem="NSB-nU-ID6" secondAttribute="height" id="Qc3-lB-Fwt"/>
                             <constraint firstItem="uFO-w8-H6D" firstAttribute="top" secondItem="LWQ-qd-158" secondAttribute="bottom" constant="8" id="QeW-Yn-Fha"/>
                             <constraint firstItem="eyX-eF-v0v" firstAttribute="top" secondItem="hc7-Kq-e8H" secondAttribute="bottom" constant="8" id="RIP-ir-T6l"/>
@@ -293,6 +304,7 @@
                             <constraint firstItem="nY3-1k-Ucm" firstAttribute="top" secondItem="Uh0-aU-gE7" secondAttribute="bottom" constant="26" id="Svc-wu-Txs"/>
                             <constraint firstItem="Yan-YT-z5f" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="74" id="T2b-ij-y59"/>
                             <constraint firstItem="eyX-eF-v0v" firstAttribute="width" secondItem="NSB-nU-ID6" secondAttribute="width" id="TKi-wn-U3g"/>
+                            <constraint firstItem="g9F-ZT-wcE" firstAttribute="leading" secondItem="6lW-Po-nXe" secondAttribute="leading" id="V0Y-BO-AuX"/>
                             <constraint firstItem="qzU-VE-ffe" firstAttribute="top" secondItem="ZSf-y8-nym" secondAttribute="bottom" constant="8" id="V4f-SC-lp7"/>
                             <constraint firstItem="ZSf-y8-nym" firstAttribute="leading" secondItem="hc7-Kq-e8H" secondAttribute="trailing" constant="8" id="V4x-Vt-nOS"/>
                             <constraint firstItem="zJu-Lw-BTu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="VzA-rp-YmF"/>
@@ -345,6 +357,7 @@
                             <constraint firstItem="ZE6-0N-xYL" firstAttribute="height" secondItem="NSB-nU-ID6" secondAttribute="height" id="oYd-6K-JZh"/>
                             <constraint firstItem="H3Y-Hf-SoP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="owW-1U-wfN"/>
                             <constraint firstAttribute="leadingMargin" secondItem="H3Y-Hf-SoP" secondAttribute="leading" id="pKK-fm-5xi"/>
+                            <constraint firstItem="4T2-xe-GGx" firstAttribute="leading" secondItem="g9F-ZT-wcE" secondAttribute="trailing" constant="8" symbolic="YES" id="pZc-uv-ujg"/>
                             <constraint firstItem="Ks0-RG-rhG" firstAttribute="width" secondItem="NSB-nU-ID6" secondAttribute="width" id="q6y-HL-BIe"/>
                             <constraint firstItem="bwA-pl-eBb" firstAttribute="top" secondItem="Uh0-aU-gE7" secondAttribute="bottom" constant="26" id="qeW-WS-GtD"/>
                             <constraint firstItem="l4M-O5-oR2" firstAttribute="width" secondItem="NSB-nU-ID6" secondAttribute="width" id="qt2-Xh-5mc"/>
@@ -368,7 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-51" y="231"/>
+            <point key="canvasLocation" x="94" y="74"/>
         </scene>
     </scenes>
 </document>

@@ -24,7 +24,7 @@ class ViewController: UIViewController {
        
         let digit = sender.currentTitle!
        
-        history.text = history.text! + digit
+        history.text = brain.description
         
         
         if userIsInTheMiddleOfTypingNumber{
@@ -44,9 +44,6 @@ class ViewController: UIViewController {
         let decimal = sender.currentTitle!
         
         history.text = history.text!+"."
-      
-        
-        
         if userIsInTheMiddleOfTypingNumber{
             display.text = display.text! + decimal
         }else{
@@ -58,6 +55,7 @@ class ViewController: UIViewController {
     }
     
   
+ 
     @IBAction func backspace() {
         let enteredString = display.text!
       
@@ -80,25 +78,23 @@ class ViewController: UIViewController {
           
 
         }
-       
-        
         
     }
     
+    
     @IBAction func clearStack(sender: UIButton) {
         display.text = "0"
-        operandStack.removeAll()
-        
+        brain.clearOpStack()
         history.text = "0"
         
         
     }
     
-    @IBAction func appendPi() {
+   /*@IBAction func appendPi() {
         let pi = String(M_PI)
     
-        history.text = history.text!+"∏"
-    
+        //history.text = history.text!+"∏"
+        history.text = brain.description
         
         if userIsInTheMiddleOfTypingNumber{
             display.text = display.text! + pi
@@ -107,7 +103,7 @@ class ViewController: UIViewController {
             display.text = pi
             userIsInTheMiddleOfTypingNumber = true
         }
-    }
+    }*/
     
     @IBAction func operate(sender: UIButton) {
         
@@ -115,16 +111,19 @@ class ViewController: UIViewController {
         if userIsInTheMiddleOfTypingNumber{
             enter()
         }
-       /* if let operation = sender.currentTitle{
+        if let operation = sender.currentTitle{
             if let result = brain.performOperation(operation){
+                //let symbol = sender.currentTitle!
+                //history.text = history.text! + brain.description
+                history.text = brain.description
                 displayValue = result
             }else{
-                displayValue = 0
+                displayValue = nil
             }
-        }*/
+        }
         
         
-        if let operation = sender.currentTitle{
+        /*if let operation = sender.currentTitle{
             switch operation{
                 case "×":
                     history.text = history.text!+"×"
@@ -135,6 +134,7 @@ class ViewController: UIViewController {
             
                 case "÷":
                     history.text = history.text!+"÷"
+                    
                     performOperation{ $1 / $0 }
                 case "+":
                     history.text = history.text!+"+"
@@ -152,20 +152,16 @@ class ViewController: UIViewController {
                 case "cos":
                     history.text = history.text!+"cos"
                     performOperation{ cos($0) }
-            
-           
-            
-          
-            
                 default: break
             }
-        }
+        }*/
         
     }
     
-   @nonobjc func performOperation(operation: (Double,Double) -> Double){
+   /*@nonobjc func performOperation(operation: (Double,Double) -> Double){
         if operandStack.count >= 2{
             displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
+            
             //autimatic entry
             enter()
         }
@@ -174,10 +170,11 @@ class ViewController: UIViewController {
     @nonobjc func performOperation(operation: Double -> Double){
         if operandStack.count >= 1{
             displayValue = operation(operandStack.removeLast())
+            
             //autimatic entry
             enter()
         }
-    }
+    }*/
     
    
 
@@ -186,30 +183,34 @@ class ViewController: UIViewController {
     
     
     //var operandStack: Array<Double> = Array<Double>()
-    var operandStack = Array<Double>()
+    //var operandStack = Array<Double>()
     //var historyStack = Array<String>()
     
 
     @IBAction func enter() {
         userIsInTheMiddleOfTypingNumber = false
-        /*if let result = brain.pushOperand(displayValue){
+        if let result = brain.pushOperand(displayValue!){
             displayValue = result
+            //history.text = history.text! + ","
+            history.text = brain.description
         }else{
-            displayValue = 0
-        }*/
+            displayValue = nil
+        }
         
-        operandStack.append(displayValue)
+        /*operandStack.append(displayValue)
         history.text = history.text! + ","
-        print("operandStack = \(operandStack)")
+        print("operandStack = \(operandStack)")*/
         
     }
     
-    var displayValue: Double{
+    var displayValue: Double?{
         get{
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
         set{
-            display.text = "\(newValue)"
+        
+            display.text = "\(newValue!)"
+            
             userIsInTheMiddleOfTypingNumber = false
         }
     }
