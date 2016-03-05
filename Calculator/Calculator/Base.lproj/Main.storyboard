@@ -192,9 +192,6 @@
                                     <action selector="backspace" destination="BYZ-38-t0r" eventType="touchUpInside" id="N0q-gs-aVa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4F8-1b-jGw">
-                                <rect key="frame" x="488" y="153" width="84" height="104"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yan-YT-z5f">
                                 <rect key="frame" x="20" y="94" width="560" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -231,6 +228,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBA-wn-auu">
                                 <rect key="frame" x="488" y="265" width="84" height="104"/>
+                                <state key="normal" title="→M"/>
+                                <connections>
+                                    <action selector="setVariable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bKh-kd-oH8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="25" verticalHuggingPriority="25" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9F-ZT-wcE">
                                 <rect key="frame" x="28" y="488" width="84" height="104"/>
@@ -238,6 +239,13 @@
                                 <state key="normal" title="∏"/>
                                 <connections>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kb0-WR-HZr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4F8-1b-jGw">
+                                <rect key="frame" x="488" y="153" width="84" height="104"/>
+                                <state key="normal" title="M"/>
+                                <connections>
+                                    <action selector="getVariable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BUb-mj-LuT"/>
                                 </connections>
                             </button>
                         </subviews>

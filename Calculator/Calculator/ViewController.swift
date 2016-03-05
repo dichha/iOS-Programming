@@ -81,6 +81,61 @@ class ViewController: UIViewController {
         
     }
     
+
+    
+  /*  @IBAction func getVariable(sender: UIButton) {
+        if userIsInTheMiddleOfTypingNumber{
+            enter()
+        }
+        let variable = sender.currentTitle!
+        if let result = brain.pushOperand(variable){
+            displayValue = result
+        }else{
+            displayValue = nil
+        }
+    }
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    @IBAction func setVariable(sender: UIButton) {
+        
+        let variable = sender.currentTitle!
+        if displayValue != nil{
+            brain.variableValues["\(variable)"] = displayValue
+            if let result = brain.evaluate(){
+                displayValue = result
+                
+            }else{
+                displayValue = nil
+            }
+        }
+        userIsInTheMiddleOfTypingNumber = false
+    }
+    
+    */
+    
+    
+    
+    
+    /*@IBAction func pushVariable(sender: UIButton) {
+    
+    }
+    
+    
+    @IBAction func setVariable(sender: UIButton) {
+       
+    
+    }*/
+    
+    
+    
     
     @IBAction func clearStack(sender: UIButton) {
         display.text = "0"
@@ -115,7 +170,7 @@ class ViewController: UIViewController {
             if let result = brain.performOperation(operation){
                 //let symbol = sender.currentTitle!
                 //history.text = history.text! + brain.description
-                history.text = brain.description
+                history.text = brain.description + " ="
                 displayValue = result
             }else{
                 displayValue = nil

@@ -47,7 +47,7 @@ class CalculatorBrain{
     }
     private var opStack = [Op]()
     private var knownOps = [String:Op]()
-    private var variableValues = [String:Double]()
+    var variableValues = [String:Double]()
     
     init(){
         func learnOp(op: Op){
@@ -145,7 +145,7 @@ class CalculatorBrain{
         let (result,remainder) = evaluate(opStack)
         
         
-        print("\(opStack) = \(result!) with \(remainder) left over")
+        //print("\(opStack) = \(result!) with \(remainder) left over")
         return result
         
     }
@@ -188,15 +188,16 @@ class CalculatorBrain{
             
         }
         return (nil, ops)
+        
     }
     
     var description: String{
         get{
             var (result, ops) = ("", opStack)
             while ops.count > 0 {
-                var current: String?
-                (current, ops) = description(ops)
-                result = result == "" ? current! : "\(current!), \(result)"
+                var currentResult: String?
+                (currentResult, ops) = description(ops)//returns string and ops
+                result = (result == "" ? currentResult! : "\(currentResult!), \(result)")
                 
             }
             return result
