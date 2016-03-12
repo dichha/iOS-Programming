@@ -15,14 +15,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var history: UILabel!
     
     var userIsInTheMiddleOfTypingNumber: Bool = false
-  
+
     
     var brain = CalculatorBrain()
-
+    
    
     @IBAction func appendDigit(sender: UIButton) {
-       
+        
         let digit = sender.currentTitle!
+        
        
         history.text = brain.description
         
@@ -81,32 +82,11 @@ class ViewController: UIViewController {
         
     }
     
-
-    
-  /*  @IBAction func getVariable(sender: UIButton) {
-        if userIsInTheMiddleOfTypingNumber{
-            enter()
-        }
-        let variable = sender.currentTitle!
-        if let result = brain.pushOperand(variable){
-            displayValue = result
-        }else{
-            displayValue = nil
-        }
-    }
-    
   
-    
-    
-    
-    
-    
-    
-    
-    
-    @IBAction func setVariable(sender: UIButton) {
-        
-        let variable = sender.currentTitle!
+    @IBAction func getVariableValue(sender: UIButton) {
+       let getVarSym = (sender.currentTitle!)
+        let variable = String(getVarSym.characters.dropFirst())
+        //print(variable)
         if displayValue != nil{
             brain.variableValues["\(variable)"] = displayValue
             if let result = brain.evaluate(){
@@ -119,27 +99,26 @@ class ViewController: UIViewController {
         userIsInTheMiddleOfTypingNumber = false
     }
     
-    */
     
-    
-    
-    
-    /*@IBAction func pushVariable(sender: UIButton) {
-    
+    @IBAction func setVariableM(sender: UIButton) {
+        if userIsInTheMiddleOfTypingNumber{
+            enter()
+        }
+        let variable = sender.currentTitle!
+        //print(variable)
+        if let result = brain.pushOperand(variable){
+            displayValue = result
+        }else{
+            displayValue = nil
+        }
+        
     }
-    
-    
-    @IBAction func setVariable(sender: UIButton) {
-       
-    
-    }*/
-    
-    
-    
+
     
     @IBAction func clearStack(sender: UIButton) {
         display.text = "0"
         brain.clearOpStack()
+        brain.clearVariableValues()
         history.text = "0"
         
         
@@ -166,6 +145,7 @@ class ViewController: UIViewController {
         if userIsInTheMiddleOfTypingNumber{
             enter()
         }
+        
         if let operation = sender.currentTitle{
             if let result = brain.performOperation(operation){
                 //let symbol = sender.currentTitle!
@@ -263,8 +243,13 @@ class ViewController: UIViewController {
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
         set{
-        
-            display.text = "\(newValue!)"
+            
+            if (newValue != nil){
+                display.text = "\(newValue!)"
+            }else{
+                display.text = " "
+            }
+            
             
             userIsInTheMiddleOfTypingNumber = false
         }

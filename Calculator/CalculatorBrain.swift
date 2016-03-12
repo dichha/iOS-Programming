@@ -146,7 +146,7 @@ class CalculatorBrain{
         
         
         //print("\(opStack) = \(result!) with \(remainder) left over")
-        return result
+          return result
         
     }
    
@@ -213,6 +213,7 @@ class CalculatorBrain{
         return evaluate()
         
     }
+    
     func performOperation(symbol: String) ->Double?{
         if let operation = knownOps[symbol]{//dictionary always returns an optional
             opStack.append(operation)
@@ -220,7 +221,11 @@ class CalculatorBrain{
         return evaluate()
         
     }
+    
     func clearOpStack(){
         opStack.removeAll()
+    }
+    func clearVariableValues(){
+        variableValues = [String:Double]()
     }
 }
