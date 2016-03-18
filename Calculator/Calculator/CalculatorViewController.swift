@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculatorViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
 
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
     
   
  
-    @IBAction func backspace() {
+   /* @IBAction func backspace() {
         let enteredString = display.text!
       
         
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
 
         }
         
-    }
+    }*/
     
   
     @IBAction func getVariableValue(sender: UIButton) {
@@ -252,6 +252,29 @@ class ViewController: UIViewController {
             
             
             userIsInTheMiddleOfTypingNumber = false
+        }
+    }
+    
+    //CalculatorViewController is the one which is instigating segue so prepareForSegue will he here
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destination = segue.destinationViewController as? UIViewController
+        if let navCon = destination as? UINavigationController{
+            //returning the one on the top (GraphViewController)
+            destination = navCon.visibleViewController
+            
+        }
+        
+        if let gvc = destination as? GraphViewController{
+            if let identifier = segue.identifier{
+                switch identifier{
+                    case "Show Graph":
+                        gvc.program = brain.program
+                        gvc.title = brain.description == "" ? "Graph" : brain.description
+                default:
+                    break
+                }
+            }
+            
         }
     }
   

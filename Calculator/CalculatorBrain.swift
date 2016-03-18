@@ -74,31 +74,34 @@ class CalculatorBrain{
     }
     
     
-//    var program: AnyObject{ //guaranteed to be a PropertyList
-//        get{
-//            //var returnValue = Array<String>()//Array is a PropertyList
-//            //                for op in opStack{
-//            //                    returnValue.append(op.description)
-//            //                }
-//            //                return returnValue
-//            return opStack.map {$0.description }
-//            
-//        }set{
-//            if let opSymbols = newValue as? Array<String>{
-//                var newOpStack  = [Op]()
-//                for opSymbol in opSymbols{
-//                    if let op = knownOps[opSymbol]{
-//                        newOpStack.append(op)
-//                    }else if let operand = NSNumberFormatter().numberFromString(opSymbol)?.doubleValue{
-//                        newOpStack.append(.Operand(operand))
-//                        
-//                    }
-//                    opStack = newOpStack
-//                }
-//            }
-//            
-//        }
-//    }
+    var program: AnyObject{ //guaranteed to be a PropertyList
+        get{
+            //var returnValue = Array<String>()//Array is a PropertyList
+            //                for op in opStack{
+            //                    returnValue.append(op.description)
+            //                }
+            //                return returnValue
+            return opStack.map {$0.description }
+            
+        }set{
+            if let opSymbols = newValue as? Array<String>{
+                var newOpStack  = [Op]()
+                for opSymbol in opSymbols{
+                    if let op = knownOps[opSymbol]{
+                        newOpStack.append(op)
+                    }else if let operand = NSNumberFormatter().numberFromString(opSymbol)?.doubleValue{
+                        newOpStack.append(.Operand(operand))
+                        
+                    }else{
+                        newOpStack.append(.Variable(opSymbol))
+                    }
+                    
+                }
+                opStack = newOpStack
+            }
+            
+        }
+    }
 
     
     
@@ -142,7 +145,7 @@ class CalculatorBrain{
     }
     
     func evaluate() ->Double? {
-        let (result,remainder) = evaluate(opStack)
+        let (result,_) = evaluate(opStack)
         
         
         //print("\(opStack) = \(result!) with \(remainder) left over")
