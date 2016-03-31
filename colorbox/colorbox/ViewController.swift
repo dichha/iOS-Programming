@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  Happiness
+//  colorbox
 //
-//  Created by raidi01 on 3/1/16.
+//  Created by raidi01 on 3/30/16.
 //  Copyright © 2016 Luther College. All rights reserved.
 //
 

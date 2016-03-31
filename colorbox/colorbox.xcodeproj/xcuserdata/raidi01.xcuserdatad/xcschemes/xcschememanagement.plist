@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Happiness.xcscheme</key>
+		<key>colorbox.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>C2F35F561C8E2F9400F85CB5</key>
+		<key>C2F1A2F71CAC6C9F00433300</key>
 		<dict>
 			<key>primary</key>
 			<true/>

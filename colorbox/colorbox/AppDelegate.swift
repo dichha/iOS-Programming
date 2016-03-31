@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Happiness
+//  colorbox
 //
-//  Created by raidi01 on 3/7/16.
+//  Created by raidi01 on 3/30/16.
 //  Copyright © 2016 Luther College. All rights reserved.
 //
 

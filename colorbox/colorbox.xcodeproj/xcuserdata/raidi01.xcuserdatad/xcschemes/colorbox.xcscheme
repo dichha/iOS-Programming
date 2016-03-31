@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C2F35F561C8E2F9400F85CB5"
-               BuildableName = "Happiness.app"
-               BlueprintName = "Happiness"
-               ReferencedContainer = "container:Happiness.xcodeproj">
+               BlueprintIdentifier = "C2F1A2F71CAC6C9F00433300"
+               BuildableName = "colorbox.app"
+               BlueprintName = "colorbox"
+               ReferencedContainer = "container:colorbox.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C2F35F561C8E2F9400F85CB5"
-            BuildableName = "Happiness.app"
-            BlueprintName = "Happiness"
-            ReferencedContainer = "container:Happiness.xcodeproj">
+            BlueprintIdentifier = "C2F1A2F71CAC6C9F00433300"
+            BuildableName = "colorbox.app"
+            BlueprintName = "colorbox"
+            ReferencedContainer = "container:colorbox.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C2F35F561C8E2F9400F85CB5"
-            BuildableName = "Happiness.app"
-            BlueprintName = "Happiness"
-            ReferencedContainer = "container:Happiness.xcodeproj">
+            BlueprintIdentifier = "C2F1A2F71CAC6C9F00433300"
+            BuildableName = "colorbox.app"
+            BlueprintName = "colorbox"
+            ReferencedContainer = "container:colorbox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C2F35F561C8E2F9400F85CB5"
-            BuildableName = "Happiness.app"
-            BlueprintName = "Happiness"
-            ReferencedContainer = "container:Happiness.xcodeproj">
+            BlueprintIdentifier = "C2F1A2F71CAC6C9F00433300"
+            BuildableName = "colorbox.app"
+            BlueprintName = "colorbox"
+            ReferencedContainer = "container:colorbox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
