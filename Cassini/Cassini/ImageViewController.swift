@@ -26,12 +26,30 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
     {
         if let url = imageURL {
             spinner.startAnimating()
-            let imageData = NSData(contentsOfURL: url)//NSDatabag of bit
-            if imageData != nil {
-                image = UIImage(data: imageData!)
-            } else {
-                image = nil
+            let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
+            dispatch_async(dispatch_get_global_queue(qos, 0)) { () -> Void in
+                let imageData = NSData(contentsOfURL: url)
+                //dispatching back to main thread
+                dispatch_async(dispatch_get_main_queue()) {
+                    
+                    if imageData != nil {
+                        self.image = UIImage(data: imageData!)
+                        
+                    } else {
+                        self.image = nil //if user has clicked somewhere else anyother place other than original request of url for photo
+                    }
+                    
+                }
+                
+            
             }
+//            spinner.startAnimating()
+//            let imageData = NSData(contentsOfURL: url)//NSDatabag of bit
+//            if imageData != nil {
+//                image = UIImage(data: imageData!)
+//            } else {
+//                image = nil
+//            }
         }
     }
     
@@ -55,7 +73,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
     
     private var imageView = UIImageView()
     
-    //property: getter and setter
+    //convenience computed property: getter and setter
     private var image: UIImage? {
         get {return imageView.image}
         set {
@@ -63,9 +81,10 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
             imageView.sizeToFit()//expanding frame to fit
             //anytime an image is set it has to set its size as well
             scrollView?.contentSize = imageView.frame.size//? for letting size to be set even if its outlet has not been set
-            spinner.stopAnimating()
+            spinner?.stopAnimating()
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //adding view to view hierarchy
@@ -77,7 +96,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
        
         
     }
-    //viewl will appear later because we know it will appear later
+    
+    //view will appear later because we know it will appear later
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if image == nil {

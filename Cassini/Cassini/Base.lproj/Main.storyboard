@@ -68,7 +68,7 @@
         <!--View Controller-->
         <scene sceneID="7Bl-t0-zSg">
             <objects>
-                <viewController id="exV-1d-AoL" sceneMemberID="viewController">
+                <viewController id="exV-1d-AoL" customClass="ViewController" customModule="Cassini" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J2d-Uk-8Qk"/>
                         <viewControllerLayoutGuide type="bottom" id="99M-QQ-QCj"/>
