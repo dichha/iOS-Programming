@@ -12,6 +12,7 @@
 		C2F8B5741CC9214B001A378A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F8B5721CC9214B001A378A /* Main.storyboard */; };
 		C2F8B5761CC9214B001A378A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F8B5751CC9214B001A378A /* Assets.xcassets */; };
 		C2F8B5791CC9214B001A378A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F8B5771CC9214B001A378A /* LaunchScreen.storyboard */; };
+		C2F8B5811CC92612001A378A /* BouncerBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F8B5801CC92612001A378A /* BouncerBehavior.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		C2F8B5751CC9214B001A378A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2F8B5781CC9214B001A378A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2F8B57A1CC9214B001A378A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2F8B5801CC92612001A378A /* BouncerBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncerBehavior.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		C2F8B56D1CC9214B001A378A /* Bouncer */ = {
 			isa = PBXGroup;
 			children = (
+				C2F8B5801CC92612001A378A /* BouncerBehavior.swift */,
 				C2F8B56E1CC9214B001A378A /* AppDelegate.swift */,
 				C2F8B5701CC9214B001A378A /* ViewController.swift */,
 				C2F8B5721CC9214B001A378A /* Main.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				C2F8B5711CC9214B001A378A /* ViewController.swift in Sources */,
 				C2F8B56F1CC9214B001A378A /* AppDelegate.swift in Sources */,
+				C2F8B5811CC92612001A378A /* BouncerBehavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
