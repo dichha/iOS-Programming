@@ -12,21 +12,34 @@ class MentionsTableViewController: UITableViewController {
     var tweet: Tweet? {
         didSet {
             title = tweet?.user.screenName
+        
             if let media = tweet?.media {
-                mentions.append(Mentions(title: "Images",
-                    data: media.map { MentionItem.Image($0.url, $0.aspectRatio) }))
+                //if only media is present then set
+                if media.count > 0{
+                    mentions.append(Mentions(title: "Images",
+                        data: media.map { MentionItem.Image($0.url, $0.aspectRatio) }))
+                }
+               
             }
             if let urls = tweet?.urls {
-                mentions.append(Mentions(title: "URLs",
-                    data: urls.map { MentionItem.Keyword($0.keyword) }))
+                if urls.count > 0{
+                    mentions.append(Mentions(title: "URLs",
+                        data: urls.map { MentionItem.Keyword($0.keyword) }))
+                }
+                
             }
             if let hashtags = tweet?.hashtags {
-                mentions.append(Mentions(title: "Hashtags",
-                    data: hashtags.map { MentionItem.Keyword($0.keyword) }))
+                if hashtags.count > 0{
+                    mentions.append(Mentions(title: "Hashtags",
+                        data: hashtags.map { MentionItem.Keyword($0.keyword) }))
+                }
+          
             }
             if let users = tweet?.userMentions {
-                mentions.append(Mentions(title: "Users",
-                    data: users.map { MentionItem.Keyword($0.keyword) }))
+                if users.count >  0{
+                    mentions.append(Mentions(title: "Users",
+                        data: users.map { MentionItem.Keyword($0.keyword) }))
+                }
             }
         }
     }
@@ -59,6 +72,8 @@ class MentionsTableViewController: UITableViewController {
     private struct Storyboard {
         static let KeywordCellReuseIdentifier = "Keyword Cell"
         static let ImageCellReuseIdentifier = "Image Cell"
+        static let KeywordSegueIdentifier = "From Keyword"
+        
     }
     
     
@@ -99,5 +114,36 @@ class MentionsTableViewController: UITableViewController {
             return UITableViewAutomaticDimension
         }
     }
+    //section in the mentions table view with title
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return mentions[section].title
+    }
+        //MARK: - if url open in safari
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == Storyboard.KeywordCellReuseIdentifier{
+            if let cell = sender as? UITableViewCell {
+                if let url = cell.textLabel?.text{
+                    if url.hasPrefix("https") {
+                        UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+                    }
+                }
+            }
+        }
+        return true
+    }
+    //MARK: - back to main tweetTableViewController
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier{
+            if identifier == Storyboard.KeywordCellReuseIdentifier{
+                if let ttvc = segue.destinationViewController as? TweetTableViewController{
+                    if let cell = sender as? UITableViewCell {
+                        ttvc.searchText = cell.textLabel?.text
+                    }
+                }
+            }
+        }
+    }
+
+    
 
 }
