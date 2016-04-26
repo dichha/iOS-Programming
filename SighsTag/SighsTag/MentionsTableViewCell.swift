@@ -2,7 +2,7 @@
 //  MentionsTableViewCell.swift
 //  SighsTag
 //
-//  Created by raidi01 on 4/13/16.
+//  Created by raidi01 on 4/26/16.
 //  Copyright © 2016 Luther College. All rights reserved.
 //
 
@@ -10,22 +10,19 @@ import UIKit
 
 class MentionsTableViewCell: UITableViewCell {
 
-   
     @IBOutlet weak var tweetImage: UIImageView!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    var imageUrl: NSURL? {
-        didSet {
-            updateUI()
-        }
-    }
+    
+    
+    var imageUrl: NSURL? { didSet { updateUI() } }
     
     func updateUI() {
         tweetImage?.image = nil
         if let url = imageUrl {
             spinner?.startAnimating()
-            dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {
+            dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
                 let imageData = NSData(contentsOfURL: url)
                 dispatch_async(dispatch_get_main_queue()) {
                     if url == self.imageUrl {
@@ -34,11 +31,10 @@ class MentionsTableViewCell: UITableViewCell {
                         } else {
                             self.tweetImage?.image = nil
                         }
-                        self.spinner?.stopAnimating()
+                       self.spinner?.stopAnimating()
                     }
                 }
             }
         }
     }
-
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C23427E11CB5E880000806A5 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23427E01CB5E880000806A5 /* TweetTableViewCell.swift */; };
+		C23C56CE1CCFAD90002DE7D6 /* MentionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C56CD1CCFAD90002DE7D6 /* MentionsTableViewCell.swift */; };
+		C2936B931CCECA4500FE7360 /* MentionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2936B921CCECA4500FE7360 /* MentionsTableViewController.swift */; };
 		C2D39DD71CB5BC390016E449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D39DD61CB5BC390016E449 /* AppDelegate.swift */; };
 		C2D39DDC1CB5BC390016E449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D39DDA1CB5BC390016E449 /* Main.storyboard */; };
 		C2D39DDE1CB5BC390016E449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2D39DDD1CB5BC390016E449 /* Assets.xcassets */; };
@@ -17,12 +19,12 @@
 		C2D39DF91CB5CE650016E449 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D39DF51CB5CE650016E449 /* Tweet.swift */; };
 		C2D39DFA1CB5CE650016E449 /* TwitterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D39DF61CB5CE650016E449 /* TwitterRequest.swift */; };
 		C2D39DFB1CB5CE650016E449 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D39DF71CB5CE650016E449 /* User.swift */; };
-		C2DAC6B21CBEEFBB00180B84 /* MentionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAC6B11CBEEFBB00180B84 /* MentionTableViewController.swift */; };
-		C2DAC6B41CBEF34800180B84 /* MentionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAC6B31CBEF34800180B84 /* MentionsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C23427E01CB5E880000806A5 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		C23C56CD1CCFAD90002DE7D6 /* MentionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsTableViewCell.swift; sourceTree = "<group>"; };
+		C2936B921CCECA4500FE7360 /* MentionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsTableViewController.swift; sourceTree = "<group>"; };
 		C2D39DD31CB5BC390016E449 /* SighsTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SighsTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D39DD61CB5BC390016E449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2D39DDB1CB5BC390016E449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -34,8 +36,6 @@
 		C2D39DF51CB5CE650016E449 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		C2D39DF61CB5CE650016E449 /* TwitterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterRequest.swift; sourceTree = "<group>"; };
 		C2D39DF71CB5CE650016E449 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C2DAC6B11CBEEFBB00180B84 /* MentionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionTableViewController.swift; sourceTree = "<group>"; };
-		C2DAC6B31CBEF34800180B84 /* MentionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,9 +72,9 @@
 				C2D39DE81CB5C5460016E449 /* TweetTableViewController.swift */,
 				C2D39DD61CB5BC390016E449 /* AppDelegate.swift */,
 				C23427E01CB5E880000806A5 /* TweetTableViewCell.swift */,
+				C2936B921CCECA4500FE7360 /* MentionsTableViewController.swift */,
+				C23C56CD1CCFAD90002DE7D6 /* MentionsTableViewCell.swift */,
 				C2D39DDA1CB5BC390016E449 /* Main.storyboard */,
-				C2DAC6B31CBEF34800180B84 /* MentionsTableViewCell.swift */,
-				C2DAC6B11CBEEFBB00180B84 /* MentionTableViewController.swift */,
 				C2D39DDD1CB5BC390016E449 /* Assets.xcassets */,
 				C2D39DDF1CB5BC390016E449 /* LaunchScreen.storyboard */,
 				C2D39DE21CB5BC390016E449 /* Info.plist */,
@@ -164,8 +164,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2DAC6B41CBEF34800180B84 /* MentionsTableViewCell.swift in Sources */,
-				C2DAC6B21CBEEFBB00180B84 /* MentionTableViewController.swift in Sources */,
+				C23C56CE1CCFAD90002DE7D6 /* MentionsTableViewCell.swift in Sources */,
+				C2936B931CCECA4500FE7360 /* MentionsTableViewController.swift in Sources */,
 				C2D39DD71CB5BC390016E449 /* AppDelegate.swift in Sources */,
 				C2D39DFA1CB5CE650016E449 /* TwitterRequest.swift in Sources */,
 				C2D39DFB1CB5CE650016E449 /* User.swift in Sources */,

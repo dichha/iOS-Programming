@@ -115,6 +115,9 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         cell.tweet = tweets[indexPath.section][indexPath.row]
         return cell
     }
+    
+    
+    //preventing segue from disclosure indicator with no details
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         //print(identifier)
         if identifier == Storyboard.MentionsIndentifier {
@@ -132,7 +135,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier{
             if identifier == Storyboard.MentionsIndentifier{
-                if let mtvc  = segue.destinationViewController as? MentionTableViewController{
+                if let mtvc  = segue.destinationViewController as? MentionsTableViewController{
                     if let tweetCell = sender as? TweetTableViewCell{
                          mtvc.tweet = tweetCell.tweet
                     }
