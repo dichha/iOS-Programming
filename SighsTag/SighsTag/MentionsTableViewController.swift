@@ -73,6 +73,7 @@ class MentionsTableViewController: UITableViewController {
         static let KeywordCellReuseIdentifier = "Keyword Cell"
         static let ImageCellReuseIdentifier = "Image Cell"
         static let KeywordSegueIdentifier = "From Keyword"
+        static let ImageSegueIdentifier = "Show Image"
         
     }
     
@@ -123,7 +124,7 @@ class MentionsTableViewController: UITableViewController {
         if identifier == Storyboard.KeywordCellReuseIdentifier{
             if let cell = sender as? UITableViewCell {
                 if let url = cell.textLabel?.text{
-                    if url.hasPrefix("https") {
+                    if url.hasPrefix("http") {
                         UIApplication.sharedApplication().openURL(NSURL(string: url)!)
                     }
                 }
@@ -131,7 +132,7 @@ class MentionsTableViewController: UITableViewController {
         }
         return true
     }
-    //MARK: - back to main tweetTableViewController
+    //MARK: - back to main tweetTableViewController or show full image
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier{
             if identifier == Storyboard.KeywordCellReuseIdentifier{
@@ -140,9 +141,18 @@ class MentionsTableViewController: UITableViewController {
                         ttvc.searchText = cell.textLabel?.text
                     }
                 }
+            }else if identifier == Storyboard.ImageSegueIdentifier{
+                if let ivc = segue.destinationViewController as? ImageViewController {
+                    if let cell = sender as? MentionsTableViewCell {
+                        ivc.imageURL = cell.imageUrl
+                        ivc.title = title
+                    }
+                }
             }
         }
     }
+ 
+   
 
     
 

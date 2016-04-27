@@ -151,6 +151,7 @@
                                 <connections>
                                     <outlet property="spinner" destination="8iP-hF-8VP" id="fQC-s0-OjD"/>
                                     <outlet property="tweetImage" destination="bUN-PB-H9q" id="sXg-KH-vU4"/>
+                                    <segue destination="T0T-7V-e22" kind="show" identifier="Show Image" id="HmC-b4-b6R"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -162,7 +163,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBI-ul-Adx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="440"/>
+            <point key="canvasLocation" x="737" y="1298"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gHH-EZ-g99">
@@ -181,6 +182,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qK6-Cf-KwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="543" y="440"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="uMw-6m-KK9">
+            <objects>
+                <viewController id="T0T-7V-e22" customClass="ImageViewController" customModule="Cassini" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A1R-hA-9IB"/>
+                        <viewControllerLayoutGuide type="bottom" id="DEM-pT-Mtl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IJO-YV-P4S">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyC-Fr-OWv">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bxL-rO-jDY">
+                                        <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bxL-rO-jDY" secondAttribute="trailing" constant="290" id="2Ac-MY-GiR"/>
+                                    <constraint firstItem="bxL-rO-jDY" firstAttribute="centerX" secondItem="nyC-Fr-OWv" secondAttribute="centerX" id="3eG-vR-msP"/>
+                                    <constraint firstAttribute="bottom" secondItem="bxL-rO-jDY" secondAttribute="bottom" constant="290" id="SSg-fl-rW7"/>
+                                    <constraint firstItem="bxL-rO-jDY" firstAttribute="centerY" secondItem="nyC-Fr-OWv" secondAttribute="centerY" id="jGg-lx-y0o"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nyC-Fr-OWv" firstAttribute="leading" secondItem="IJO-YV-P4S" secondAttribute="leading" id="Ec6-ET-e5F"/>
+                            <constraint firstItem="nyC-Fr-OWv" firstAttribute="top" secondItem="IJO-YV-P4S" secondAttribute="top" id="keE-Fh-uRH"/>
+                            <constraint firstAttribute="trailing" secondItem="nyC-Fr-OWv" secondAttribute="trailing" id="n7z-bs-6WF"/>
+                            <constraint firstItem="nyC-Fr-OWv" firstAttribute="bottom" secondItem="DEM-pT-Mtl" secondAttribute="top" id="t62-05-PdP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="nyC-Fr-OWv" id="j8t-ST-347"/>
+                        <outlet property="spinner" destination="bxL-rO-jDY" id="bTE-JF-J9X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2gQ-xg-pC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1487" y="1323"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
