@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C226E23A1CD249A900DFC472 /* RecentSearches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226E2391CD249A900DFC472 /* RecentSearches.swift */; };
 		C23427E11CB5E880000806A5 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23427E01CB5E880000806A5 /* TweetTableViewCell.swift */; };
 		C23C56CE1CCFAD90002DE7D6 /* MentionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23C56CD1CCFAD90002DE7D6 /* MentionsTableViewCell.swift */; };
 		C2936B931CCECA4500FE7360 /* MentionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2936B921CCECA4500FE7360 /* MentionsTableViewController.swift */; };
 		C2C7DC351CD1608800DFB452 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C7DC341CD1608800DFB452 /* ImageViewController.swift */; };
+		C2C7DC371CD1896100DFB452 /* RecentSearchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C7DC361CD1896100DFB452 /* RecentSearchesTableViewController.swift */; };
 		C2D39DD71CB5BC390016E449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D39DD61CB5BC390016E449 /* AppDelegate.swift */; };
 		C2D39DDC1CB5BC390016E449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D39DDA1CB5BC390016E449 /* Main.storyboard */; };
 		C2D39DDE1CB5BC390016E449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2D39DDD1CB5BC390016E449 /* Assets.xcassets */; };
@@ -23,10 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C226E2391CD249A900DFC472 /* RecentSearches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentSearches.swift; sourceTree = "<group>"; };
 		C23427E01CB5E880000806A5 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		C23C56CD1CCFAD90002DE7D6 /* MentionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsTableViewCell.swift; sourceTree = "<group>"; };
 		C2936B921CCECA4500FE7360 /* MentionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsTableViewController.swift; sourceTree = "<group>"; };
 		C2C7DC341CD1608800DFB452 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		C2C7DC361CD1896100DFB452 /* RecentSearchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentSearchesTableViewController.swift; sourceTree = "<group>"; };
 		C2D39DD31CB5BC390016E449 /* SighsTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SighsTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D39DD61CB5BC390016E449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2D39DDB1CB5BC390016E449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 				C2936B921CCECA4500FE7360 /* MentionsTableViewController.swift */,
 				C23C56CD1CCFAD90002DE7D6 /* MentionsTableViewCell.swift */,
 				C2C7DC341CD1608800DFB452 /* ImageViewController.swift */,
+				C2C7DC361CD1896100DFB452 /* RecentSearchesTableViewController.swift */,
+				C226E2391CD249A900DFC472 /* RecentSearches.swift */,
 				C2D39DDA1CB5BC390016E449 /* Main.storyboard */,
 				C2D39DDD1CB5BC390016E449 /* Assets.xcassets */,
 				C2D39DDF1CB5BC390016E449 /* LaunchScreen.storyboard */,
@@ -176,6 +182,8 @@
 				C2D39DE91CB5C5460016E449 /* TweetTableViewController.swift in Sources */,
 				C2D39DF81CB5CE650016E449 /* MediaItem.swift in Sources */,
 				C2D39DF91CB5CE650016E449 /* Tweet.swift in Sources */,
+				C2C7DC371CD1896100DFB452 /* RecentSearchesTableViewController.swift in Sources */,
+				C226E23A1CD249A900DFC472 /* RecentSearches.swift in Sources */,
 				C23427E11CB5E880000806A5 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

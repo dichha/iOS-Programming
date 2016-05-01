@@ -60,6 +60,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBAction func refresh(sender: UIRefreshControl?) {
         if searchText != nil{
+            //adding to RecentSearch the searchText 
+            RecentSearches().add(searchText!)
             if let request = nextRequestToAttempt {
                 request.fetchTweets{(newTweets) -> Void in
                     dispatch_async(dispatch_get_main_queue()){() -> Void in
