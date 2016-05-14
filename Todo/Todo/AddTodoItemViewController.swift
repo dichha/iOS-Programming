@@ -1,4 +1,4 @@
-//
+/Add//
 //  AddTodoItemViewController.swift
 //  Todo
 //
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTodoItemViewController: UIViewController {
+class AddTodoItemViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     
@@ -24,6 +24,8 @@ class AddTodoItemViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        //making UItextField first responder
+        textField.delegate = self
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
