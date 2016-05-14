@@ -25,6 +25,20 @@ class TodoListTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
         
+        
+        //NSUserDefaults
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(todoItem.itemName, forKey: "task")
+        
+        defaults.setObject(todoItem.completed, forKey: "done")
+        defaults.synchronize()
+        //print("task = \(todoItem.itemName), done = \(todoItem.completed)")
+        
+        
+        
+        
+        
     }
     var todoItems: [TodoItem] = []
     
@@ -34,10 +48,14 @@ class TodoListTableViewController: UITableViewController {
             TodoItem(itemName: "Finish Paideia Research Paper"),
             TodoItem(itemName: "Do Golf assignment")
         ]
+        let defaults = NSUserDefaults.standardUserDefaults()
+        todoItems += [TodoItem(itemName: defaults.objectForKey("task") as! String)]
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         loadInitialData()
+        
+        
     }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
